@@ -1,0 +1,27 @@
+.dashboard-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(135deg, #22b573, #16a34a);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.card h1 {
+  font-size: 32px;
+  margin-top: 10px;
+}
