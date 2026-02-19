@@ -77,13 +77,14 @@ import EmployeeDetails from "./pages/EmployeeDetails"
 import AddEmployee from "./pages/AddEmployee"
 import ProtectedRoute from "./routes/ProtectedRoute"
 import Layout from "./components/Layout"
+import Chat from "./pages/Chat.jsx"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* PUBLIC ROUTE */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
 
         {/* PROTECTED LAYOUT */}
         <Route
@@ -100,6 +101,7 @@ function App() {
           <Route path="/employees" element={<EmployeeList />} />
           <Route path="/employees/add" element={<AddEmployee />} />
           <Route path="/employees/:id" element={<EmployeeDetails />} />
+          <Route path="/chat" element={<Chat/>} />
         </Route>
       </Routes>
     </BrowserRouter>

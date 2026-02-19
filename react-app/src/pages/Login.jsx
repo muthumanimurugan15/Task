@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import { loginSuccess } from "../features/auth/authSlice"
+import "../styles/login.css"
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -19,7 +20,6 @@ const Login = () => {
   })
 
   const onSubmit = (values) => {
-    // fake auth
     if (values.email === "admin@test.com" && values.password === "1234") {
       dispatch(loginSuccess({ email: values.email }))
       navigate("/dashboard")
@@ -29,41 +29,49 @@ const Login = () => {
   }
 
   return (
-    <div style={{ maxWidth: 400, margin: "100px auto" }}>
-      <h2>Login</h2>
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Login</h2>
 
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
-        <Form>
-          <div>
-            <Field name="email" placeholder="Email" />
-            <ErrorMessage name="email" component="div" style={{ color: "red" }} />
-          </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          <Form>
+            <div className="form-group">
+              <Field name="email" placeholder="Email" />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error-text"
+              />
+            </div>
 
-          <div>
-            <Field
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              style={{ color: "red" }}
-            />
-          </div>
+            <div className="form-group">
+              <Field
+                name="password"
+                type="password"
+                placeholder="Password"
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="error-text"
+              />
+            </div>
 
-          <button type="submit">Login</button>
-        </Form>
-      </Formik>
+            <button type="submit" className="login-btn">
+              Login
+            </button>
+          </Form>
+        </Formik>
 
-      <p style={{ marginTop: 10 }}>
-        Demo: <br />
-        admin@test.com / 1234
-      </p>
+        <p className="demo-text">
+          Demo Login <br />
+          <strong>admin@test.com</strong> / <strong>1234</strong>
+        </p>
+      </div>
     </div>
   )
 }
