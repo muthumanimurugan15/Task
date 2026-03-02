@@ -4,7 +4,7 @@ import Message from "../components/Message"
 import TypingIndicator from "../components/TypingIndicator"
 import "../styles/chat.css"
 
-const socket = io("http://localhost:5000") // backend socket URL
+const socket = io("") // backend socket URL
 
 const Chat = () => {
   const [messages, setMessages] = useState([])
